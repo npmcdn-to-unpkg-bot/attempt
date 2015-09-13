@@ -1,0 +1,21 @@
+{
+  "name": "first-step",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rodrigosaling/first-step",
+  "authors": [
+    "Rodrigo Saling <rodrigosaling@gmail.com>"
+  ],
+  "description": "A simple Bootstrap theme for Ghost.",
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
