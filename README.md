@@ -2,7 +2,7 @@
 A simple Bootstrap theme for Ghost.
 
 ## About
-This theme is under heavy development.
+This theme is under development.
 
 *Walking through an unknown path.*
 
