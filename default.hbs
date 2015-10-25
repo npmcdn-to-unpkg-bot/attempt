@@ -24,11 +24,35 @@
     </head>
     <body class="{{body_class}}">
 
-        {{! Everything else gets inserted here }}
-        {{{body}}}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h1 class="text-center">{{@blog.title}}</h1>
+                    <p class="text-center">{{@blog.description}}</p>
+                </div>
+            </div>
 
-        {{! Ghost outputs important scripts and data with this tag }}
-        {{ghost_foot}}
+            <div class="row">
+                <div class="col-sm-9 col-sm-push-3">
+                    {{! Everything else gets inserted here }}
+                    {{{body}}}
+                </div>
+                <div class="col-sm-3 col-sm-pull-9">
+                    <aside>
+                        sidebar
+                    </aside>
+                </div>
+            </div>
+
+            <footer>
+                <section><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
+                <section>Proudly published with <a href="https://ghost.org">Ghost</a></section>
+            </footer>
+
+            {{! Ghost outputs important scripts and data with this tag }}
+            {{ghost_foot}}
+
+        </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
