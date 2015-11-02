@@ -15,8 +15,8 @@
             <p>{{excerpt words="35"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
         </section>
         <footer class="post-meta">
-            {{#if tags}} {{tags}} | {{/if}}
             <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            {{tags prefix=" on "}}
         </footer>
     </article>
 
