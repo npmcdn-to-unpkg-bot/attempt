@@ -10,6 +10,7 @@
 
         <!-- Bootstrap -->
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/main.css" rel="stylesheet">
 
         {{! Ghost outputs important style and meta data with this tag }}
         {{ghost_head}}
@@ -24,38 +25,22 @@
     </head>
     <body class="{{body_class}}">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h1 class="text-center">{{@blog.title}}</h1>
-                    <p class="text-center">{{@blog.description}}</p>
-                </div>
-            </div>
+        <header class="blog-header" style="background-image: url({{@blog.cover}});">
+            <h1 class="text-center"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+        </header>
 
-            <hr/>
+        <div class="container">
 
             <div class="row">
                 <div class="col-sm-9 col-sm-push-3">
-                    {{! Everything else gets inserted here. Defined by Ghost itself }}
+                    {{! Everything else gets inserted here. Defined by Ghost itself, somewhere }}
                     {{{body}}}
                 </div>
                 <hr class="visible-xs-block"/>
                 <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-sm-pull-9">
 
                     <aside>
-                        <section>
-                            {{! Macgyverism to display author information on sidebar }}
-                            {{#foreach posts}}
-                                {{#if @first}}
-                                    {{#author}}
-                                        <img src="{{image}}" alt="{{name}}" class="img-responsive img-rounded"/>
-                                        <h3>{{name}}</h3>
-                                        <p>{{bio}}</p>
-                                        <p>@ {{location}}</p>
-                                    {{/author}}
-                                {{/if}}
-                            {{/foreach}}
-                        </section>
+                        <p>{{@blog.description}}</p>
                         <hr/>
                         {{! Display navigation defined on admin }}
                         {{navigation}}
