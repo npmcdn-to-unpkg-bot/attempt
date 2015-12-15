@@ -9,8 +9,8 @@
         <meta name="description" content="{{meta_description}}">
 
         <!-- Bootstrap -->
-        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset 'css/main.css'}}" rel="stylesheet">
 
         {{! Ghost outputs important style and meta data with this tag }}
         {{ghost_head}}
@@ -60,14 +60,18 @@
                 </div>
             </footer>
 
-            {{! Ghost outputs important scripts and data with this tag }}
-            {{ghost_foot}}
+
 
         </div>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+        {{! Ghost outputs important scripts and data with this tag }}
+        {{ghost_foot}}
+
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
