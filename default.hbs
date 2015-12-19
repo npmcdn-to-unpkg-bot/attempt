@@ -25,9 +25,13 @@
     </head>
     <body class="{{body_class}}">
 
-        <header class="blog-header" style="background-image: url({{@blog.cover}});">
+        <header class="container">
             <h1 class="text-center"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+            <p class="text-center">{{@blog.description}}</p>
+
         </header>
+
+        <div class="blog-header" style="background-image: url({{@blog.cover}}); max-height: 50vh;"></div>
 
         <div class="container">
 
@@ -40,9 +44,8 @@
                 <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-sm-pull-9">
 
                     <aside>
-                        <p>{{@blog.description}}</p>
-                        <hr/>
                         {{! Display navigation defined on admin }}
+                        <h4>Navigation</h4>
                         {{navigation}}
                     </aside>
                 </div>
