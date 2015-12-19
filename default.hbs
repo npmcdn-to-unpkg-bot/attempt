@@ -31,7 +31,11 @@
 
         </header>
 
-        <div class="blog-header" style="background-image: url({{@blog.cover}}); max-height: 50vh;"></div>
+        {{! Remember to use a 'string', with quotes }}
+        {{#is 'index'}} {{! === 'home' && 'paged' }}
+            {{! 'index' and not 'home' to allow the image to be shown on subsequent pages of the main list. }}
+            <div class="blog-header" style="background-image: url({{@blog.cover}}); max-height: 50vh;"></div>
+        {{/is}}
 
         <div class="container">
 
