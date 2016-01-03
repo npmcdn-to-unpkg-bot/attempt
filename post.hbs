@@ -25,15 +25,24 @@
         {{#author}}
 
             <section class="author">
-                <p>Published by <a href="{{url}}">{{name}}</a> under the tags {{tags prefix=" on "}}</p>
+                <p>Published by <a href="{{url}}">{{name}}</a>.</p>
             </section>
 
         {{/author}}
+
+            {{tags prefix="On "}}.
 
         </footer>
 
     </article>
 </main>
+
+<nav>
+    <ul class="pager">
+        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+        <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
 
 <aside class="read-next">
     {{#next_post}}
