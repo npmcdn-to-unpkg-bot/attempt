@@ -20,18 +20,9 @@
         <hr>
 
         <footer class="post-footer">
-
-        {{! Everything inside the #author tags pulls data from the author }}
-        {{#author}}
-
             <section class="author">
-                <p>Published by <a href="{{url}}">{{name}}</a>.</p>
+                <p>Published by {{author}} under {{tags}}.</p>
             </section>
-
-        {{/author}}
-
-            {{tags prefix="On "}}.
-
         </footer>
 
     </article>
@@ -39,28 +30,14 @@
 
 <nav>
     <ul class="pager">
-        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-        <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        {{#prev_post}}
+        <li class="previous"><a href="{{url}}"><span aria-hidden="true">&larr;</span> {{title}}</a></li>
+        {{/prev_post}}
+
+        {{#next_post}}
+        <li class="next"><a href="{{url}}">{{title}} <span aria-hidden="true">&rarr;</span></a></li>
+        {{/next_post}}
     </ul>
 </nav>
-
-<aside class="read-next">
-    {{#next_post}}
-    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/next_post}}
-    {{#prev_post}}
-    <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/prev_post}}
-</aside>
 
 {{/post}}
