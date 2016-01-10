@@ -1,16 +1,21 @@
 /* HEADER */
 
-.blog-header {
+.blog-image {
     position: relative;
     width: 100%;
     height: 60vh;
-    background: #222 no-repeat center center;
+    background: #fff no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
 
 
 /* POST */
-.post-header {
-    margin-bottom: 15px;
+
+.post-image {
+    width: 100%;
+    height: 40vh;
+    background: #fff no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
 }
