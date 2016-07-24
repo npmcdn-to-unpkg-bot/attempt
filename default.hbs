@@ -1,84 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>{{meta_title}}</title>
-        <meta name="description" content="{{meta_description}}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}">
 
-        <!-- Bootstrap -->
-        <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="{{asset 'css/main.css'}}" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset 'css/main.css'}}" rel="stylesheet">
 
-        {{! Ghost outputs important style and meta data with this tag }}
-        {{ghost_head}}
+  {{! Ghost outputs important style and meta data with this tag }}
+  {{ghost_head}}
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-    </head>
-    <body class="{{body_class}}">
+</head>
+<body class="{{body_class}}">
 
-        <header class="container">
-            <h1 class="text-center"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
-            <p class="text-center">{{@blog.description}}</p>
+<header class="container">
+  <h1 class="text-center"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+  <p class="text-center">{{@blog.description}}</p>
+</header>
 
-        </header>
+{{! Remember to use a 'string', with quotes }}
+{{#is 'index'}} {{! === 'home' && 'paged' }}
+{{! 'index' and not 'home' to allow the image to be shown on subsequent pages of the main list. }}
+  <div class="blog-image" style="background-image: url({{@blog.cover}})"></div>
+{{/is}}
 
-        {{! Remember to use a 'string', with quotes }}
-        {{#is 'index'}} {{! === 'home' && 'paged' }}
-            {{! 'index' and not 'home' to allow the image to be shown on subsequent pages of the main list. }}
-            <div class="blog-image" style="background-image: url({{@blog.cover}})"></div>
-        {{/is}}
+<div class="container-fluid">
 
-        <div class="container">
+  <aside>
+    {{! Display navigation defined on admin }}
+    {{navigation}}
+  </aside>
 
-            <div class="row">
-                <div class="col-sm-9 col-sm-push-3">
-                    {{! Everything else gets inserted here. Defined by Ghost itself, somewhere }}
-                    {{{body}}}
-                </div>
-                <hr class="visible-xs-block"/>
-                <div class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 col-sm-pull-9">
+  {{! Everything else gets inserted here. Defined by Ghost itself, somewhere }}
+  {{{body}}}
 
-                    <aside>
-                        {{! Display navigation defined on admin }}
-                        <h4>Navigation</h4>
-                        {{navigation}}
-                    </aside>
-                </div>
-            </div>
+  <footer>
+    <hr/>
+    <div class="row">
+      <div class="col-xs-6">
+        <section><p><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; 1983 - {{date format="YYYY"}}</p></section>
+      </div>
+      <div class="col-xs-6 text-right">
+        <section><p>Proudly published with <a href="https://ghost.org">Ghost</a></p></section>
+      </div>
+    </div>
+  </footer>
 
-            <footer>
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <section><p><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</p></section>
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <section><p>Proudly published with <a href="https://ghost.org">Ghost</a></p></section>
-                    </div>
-                </div>
-            </footer>
+</div>
 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+{{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
+{{! Ghost outputs important scripts and data with this tag }}
+{{ghost_foot}}
 
-        </div>
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-        {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
-        {{! Ghost outputs important scripts and data with this tag }}
-        {{ghost_foot}}
-
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
+</body>
 </html>

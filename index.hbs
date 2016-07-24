@@ -1,31 +1,37 @@
 {{!< default}}
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
-{{! This is the post loop - each post will be output using this markup }}
-{{#foreach posts}}
+<div class="grid" data-masonry='{
+    "columnWidth": ".grid-sizer",
+    "itemSelector": ".grid-item",
+    "percentPosition": true,
+    "gutter": ".gutter-sizer"
+  }'>
+  {{! This is the post loop - each post will be output using this markup }}
+  {{#foreach posts}}
 
-  <article class="{{post_class}}">
-    <header class="post-header">
-      {{#if image}}
-        <div class="post-image" style="background-image: url({{image}})"></div>
-      {{/if}}
-      <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-    </header>
-    <section class="post-excerpt">
-      <p>{{excerpt words="35"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-    </section>
-    <footer class="post-meta">
-      <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-      {{tags prefix=" on "}}
-    </footer>
-  </article>
+    <article class="{{post_class}} grid-item {{#if @first}} grid-sizer {{/if}}">
+      <header class="post-header">
+        {{#if image}}
+          <div class="post-image" style="background-image: url({{image}})"></div>
+        {{/if}}
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+      </header>
+      <section class="post-excerpt">
+        <p>{{excerpt words="35"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+      </section>
+      <footer class="post-meta">
+        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        {{tags prefix=" on "}}
+      </footer>
+    </article>
 
-  {{! '^' is negation }}
-  {{^if @last}}
-    <hr>
-  {{/if}}
+    {{#if @first}}
+      <div class="gutter-sizer"></div>
+    {{/if}}
 
-{{/foreach}}
+  {{/foreach}}
+</div>
 
 {{! Previous/next page links - displayed on every page }}
 {{pagination}}

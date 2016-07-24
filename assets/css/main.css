@@ -20,3 +20,39 @@
     background-size: cover;
     overflow: hidden;
 }
+
+
+/* Masonry */
+
+.grid-item {
+  width: 100%;
+  margin-bottom: 2%;
+}
+.gutter-sizer {
+  width: 0;
+}
+
+@media (min-width: 768px) {
+  .grid-item {
+    width: 48.5%;
+  }
+  .gutter-sizer {
+    width: 3%;
+  }
+}
+@media (min-width: 992px) {
+  .grid-item {
+    width: 31.33333333333333%;
+  }
+  .gutter-sizer {
+    width: 3%;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-item {
+    width: 22.75%;
+  }
+  .gutter-sizer {
+    width: 3%;
+  }
+}
