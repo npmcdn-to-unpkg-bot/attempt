@@ -37,8 +37,8 @@
     <article class="{{post_class}} grid-item {{#if @first}} grid-sizer {{/if}}">
       <header class="post-header">
         {{#if image}}
-          <a href="{{url}}">{{{title}}}
-            <img class="post-image img-responsive" src="{{image}}" alt="{{{title}}}">
+          <a href="{{url}}">
+            <div class="post-image" style="background-image:url({{image}})"></div>
           </a>
         {{/if}}
         <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>

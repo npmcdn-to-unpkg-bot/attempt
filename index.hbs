@@ -14,7 +14,7 @@
       <header class="post-header">
         {{#if image}}
           <a href="{{url}}">
-            <img class="post-image img-responsive" src="{{image}}" alt="{{{title}}}">
+            <div class="post-image" style="background-image:url({{image}})"></div>
           </a>
         {{/if}}
         <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
