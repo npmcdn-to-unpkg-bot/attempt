@@ -31,12 +31,12 @@
 </header>
 
 {{! Remember to use a 'string', with quotes }}
-{{#is 'index'}} {{! === 'home' && 'paged' }}
+{{#is 'index'}} {{! 'index' === 'home' && 'paged' }}
 {{! 'index' and not 'home' to allow the image to be shown on subsequent pages of the main list. }}
   <div class="blog-image" style="background-image: url({{@blog.cover}})"></div>
 {{/is}}
 
-<div class="container-fluid">
+<div class="{{#is 'index, tag'}} container-fluid {{else}} container {{/is}}">
 
   <aside>
     {{! Display navigation defined on admin }}

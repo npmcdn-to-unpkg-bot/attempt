@@ -14,11 +14,7 @@
 /* POST */
 
 .post-image {
-    width: 100%;
-    height: 40vh;
-    background: #fff no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
+
 }
 
 
@@ -26,7 +22,7 @@
 
 .grid-item {
   width: 100%;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 .gutter-sizer {
   width: 0;
